@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\VendaController;
 use App\Http\Livewire\Vendas;
 use App\Http\Livewire\Produtos;
+use App\Http\Livewire\Servicos;
 
 Route::get('vendas', Vendas::class);
 Route::get('produtos', Produtos::class);
+Route::get('servicos', Servicos::class);
 // Route::resource('vendas', VendaController::class);
 
 /*
