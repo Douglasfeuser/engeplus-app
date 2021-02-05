@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\VendaController;
 use App\Http\Livewire\Vendas;
+use App\Http\Livewire\Produtos;
 
 Route::get('vendas', Vendas::class);
+Route::get('produtos', Produtos::class);
 // Route::resource('vendas', VendaController::class);
 
 /*
