@@ -9,7 +9,14 @@ class Servico extends Model
 {
     use HasFactory;
 
+    protected $table = 'servicos';
+
+    protected $casts = [
+        'value' => 'float'
+    ];
+
     protected $fillable = [
-        'name', 'value'
+        'name',
+        'value'
     ];
 }

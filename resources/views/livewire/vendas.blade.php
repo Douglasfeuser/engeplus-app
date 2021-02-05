@@ -15,7 +15,10 @@
                   </div>
                 </div>
             @endif
-            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Criar venda</button>
+            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">
+                Criar venda
+                <i class="fas fa-plus-circle"></i>
+            </button>
             @if($isOpen)
                 @include('livewire.create')
             @endif
@@ -35,8 +38,14 @@
                         <td class="border px-4 py-2">{{ $venda->name }}</td>
                         <td class="border px-4 py-2">{{ $venda->detail }}</td>
                         <td class="border px-4 py-2 flex justify-center">
-                        <button wire:click="edit({{ $venda->id }})" class="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar</button>
-                            <button wire:click="delete({{ $venda->id }})" class="mx-1 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Excluir</button>
+                            <button wire:click="edit({{ $venda->id }})" class="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Editar
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button wire:click="delete({{ $venda->id }})" class="mx-1 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                Excluir
+                                <i class="fas fa-trash"></i>
+                            </button>
                         </td>
                     </tr>
                     @endforeach
