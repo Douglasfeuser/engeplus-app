@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\VendaController;
+// use App\Http\Controllers\VendaController;
+use App\Http\Livewire\Vendas;
 
-Route::resource('vendas', VendaController::class);
+Route::get('vendas', Vendas::class);
+// Route::resource('vendas', VendaController::class);
 
 /*
 |--------------------------------------------------------------------------
