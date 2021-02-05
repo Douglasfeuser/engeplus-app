@@ -29,14 +29,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($servicos as $produto)
+                    @foreach($servicos as $servico)
                     <tr>
-                        <td class="border px-4 py-2 text-center">{{ $produto->id }}</td>
-                        <td class="border px-4 py-2">{{ $produto->name }}</td>
-                        <td class="border px-4 py-2 text-center">R$ {{ $produto->value }}</td>
+                        <td class="border px-4 py-2 text-center">{{ $servico->id }}</td>
+                        <td class="border px-4 py-2">{{ $servico->name }}</td>
+                        <td class="border px-4 py-2 text-center">R$ {{ $servico->value }}</td>
                         <td class="border px-4 py-2 flex justify-center">
-                        <button wire:click="edit({{ $produto->id }})" class="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar</button>
-                            <button wire:click="delete({{ $produto->id }})" class="mx-1 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Excluir</button>
+                        <button wire:click="edit({{ $servico->id }})" class="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar</button>
+                            <button wire:click="delete({{ $servico->id }})" class="mx-1 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Excluir</button>
                         </td>
                     </tr>
                     @endforeach

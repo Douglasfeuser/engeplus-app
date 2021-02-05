@@ -6,9 +6,6 @@ use App\Http\Livewire\Vendas;
 use App\Http\Livewire\Produtos;
 use App\Http\Livewire\Servicos;
 
-Route::get('vendas', Vendas::class);
-Route::get('produtos', Produtos::class);
-Route::get('servicos', Servicos::class);
 // Route::resource('vendas', VendaController::class);
 
 /*
@@ -29,3 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('vendas', Vendas::class)->name('vendas');
+Route::middleware(['auth:sanctum', 'verified'])->get('produtos', Produtos::class)->name('produtos');
+Route::middleware(['auth:sanctum', 'verified'])->get('servicos', Servicos::class)->name('servicos');
