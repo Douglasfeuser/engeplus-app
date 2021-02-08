@@ -3,16 +3,21 @@
 namespace App\Http\Livewire;
 
 use App\Models\Venda;
+use App\Models\Produto;
 use Livewire\Component;
+use Illuminate\Http\Request;
 
 class Vendas extends Component
 {
-    public $vendas, $name, $detail, $venda_id;
+    public $comissao, $vendas, $name, $value, $detail, $venda_id, $itens = [], $produtos = [];
     public $isOpen = 0;
+
 
     public function render()
     {
         $this->vendas = Venda::all();
+        $this->itens = Produto::all();
+
         return view('livewire.vendas');
     }
 
@@ -53,9 +58,14 @@ class Vendas extends Component
      * @var array
      */
     private function resetInputFields(){
+
         $this->name = '';
         $this->detail = '';
+        $this->produtos = [];
+        $this->value = 0;
+        $this->comissao = 0;
         $this->venda_id = '';
+
     }
 
     /**
@@ -63,24 +73,29 @@ class Vendas extends Component
      *
      * @var array
      */
-    public function store()
+    public function store(Request $request)
     {
         $this->validate([
             'name' => 'required',
-            'detail' => 'required',
+            'detail' => 'required'
         ]);
 
-        Venda::updateOrCreate(['id' => $this->venda_id], [
+        $venda = Venda::updateOrCreate(['id' => $this->venda_id], [
             'name' => $this->name,
             'detail' => $this->detail
         ]);
 
+        foreach ($this->produtos as $produto) {
+            $venda->itens()->attach($produto['produto_id']);
+        }
+
         session()->flash('message',
-            $this->venda_id ? 'Venda Updated Successfully.' : 'Venda criada com sucesso.');
+            $this->venda_id ? 'Venda atualizada com sucesso.' : 'Venda criada com sucesso.');
 
         $this->closeModal();
         $this->resetInputFields();
     }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -105,5 +120,37 @@ class Vendas extends Component
     {
         Venda::find($id)->delete();
         session()->flash('message', 'Venda excluida com sucesso.');
+    }
+
+    public function addProduct()
+    {
+        $this->produtos[] = ['produto_id' => ''];
+    }
+
+    public function removeProduct($index)
+    {
+        unset($this->produtos[$index]);
+        $this->produtos = array_values($this->produtos);
+    }
+
+    public function calculate()
+    {
+        $this->value = 0;
+        $this->comissao = 0;
+
+        foreach ($this->produtos as $produto) {
+            $teste = Produto::findOrFail($produto['produto_id']);
+            info($teste);
+            $this->value += $teste->value;
+            if($teste->type == 1){
+                $this->comissao += (10 / 100) * $teste->value;
+            } else {
+                $this->comissao += (25 / 100) * $teste->value;
+            }
+        }
+
+        // info(Auth::user());
+        $this->value = number_format($this->value, 2);
+        $this->comissao = number_format($this->comissao, 2);
     }
 }

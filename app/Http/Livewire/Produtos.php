@@ -7,7 +7,7 @@ use App\Models\Produto;
 
 class Produtos extends Component
 {
-    public $produtos, $name, $value, $produto_id;
+    public $produtos, $name, $value, $produto_id, $type;
     public $isOpen = 0;
 
     public function render()
@@ -34,6 +34,7 @@ class Produtos extends Component
 
     private function resetInputFields(){
         $this->name = '';
+        $this->type = '';
         $this->value = '';
         $this->produto_id = '';
     }
@@ -42,11 +43,13 @@ class Produtos extends Component
     {
         $this->validate([
             'name' => 'required',
+            'type' => 'required',
             'value' => 'required',
         ]);
 
         Produto::updateOrCreate(['id' => $this->produto_id], [
             'name' => $this->name,
+            'type' => $this->type,
             'value' => $this->value
         ]);
 
@@ -62,6 +65,7 @@ class Produtos extends Component
         $produto = Produto::findOrFail($id);
         $this->produto_id = $id;
         $this->name = $produto->name;
+        $this->type = $produto->type;
         $this->value = $produto->value;
 
         $this->openModal();

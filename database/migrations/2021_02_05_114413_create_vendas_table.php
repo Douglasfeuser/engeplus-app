@@ -17,6 +17,9 @@ class CreateVendasTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('detail');
+            $table->decimal('value', 22)->nullable()->default(0.00);
+            $table->decimal('comissao', 22)->nullable()->default(0.00);
+            $table->text('vendedor')->nullable();
             $table->timestamps();
         });
     }
