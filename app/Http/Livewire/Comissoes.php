@@ -12,7 +12,7 @@ class Comissoes extends Component
     public function render()
     {
         $this->user = auth()->user();
-        $this->comissoes = DB::table('vendas')->where('vendedor', $this->user->id)->get();
+        $this->comissoes = DB::table('vendas')->where('vendedor', $this->user->id)->orderBy('created_at')->get();
 
         return view('livewire.comissao.lista');
     }

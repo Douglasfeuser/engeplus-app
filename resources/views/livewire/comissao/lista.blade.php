@@ -20,9 +20,10 @@
                     <thead>
                         <tr class="bg-gray-100">
                             <th class="px-4 py-2 w-20">N#</th>
-                            <th class="px-4 py-2">Nome venda</th>
+                            <th class="px-4 py-2">Nome da venda</th>
                             <th class="px-4 py-2">Comissão</th>
                             <th class="px-4 py-2">Valor total</th>
+                            <th class="px-4 py-2">Data da venda</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,6 +33,7 @@
                             <td class="border px-4 py-2">{{ $comissao->name }}</td>
                             <td class="border px-4 py-2 text-center">R$ {{ $comissao->comissao }}</td>
                             <td class="border px-4 py-2 text-center">R$ {{ $comissao->value }}</td>
+                            <td class="border px-4 py-2 text-center">{{ $comissao->created_at }}</td>
                         </tr>
                         @endforeach
                     </tbody>
