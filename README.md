@@ -60,3 +60,72 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# Como Instalar
+
+Após ter todo o ambiente pronto para rodar aplicações PHP/MySQL e ter o Composer instalado, crie um base de dados no MySQL chamada **engeplus_app**.
+
+Agora, abra um terminal na pasta raiz do projeto e digite os seguintes comandos:
+
+```composer install```
+
+```php artisan key:generate```
+
+```php artisan serve```
+
+Agora acesse a [página local](http://localhost:8000) do projeto.
+
+# Banco de dados
+
+Em relação ao banco pode ser criado por comandos ou copiando e executando o SQL do arquivo na pasta database banco.sql, o arquivo já contem alguns dados no banco.
+
+Caso queira fazer por comando seguir o comando abaixo:
+
+```php artisan migrate --seed```
+
+# Testes
+
+O projeto tem alguns testes simples que podem ser rodados com o comando:
+
+```php artisan test ```
+
+
+# Observações
+
+O projeto tem uma rota /register para controlar o registro de usuario, o usuario é uma simulação de login como um vendedor.
+
+# Avaliação Desenvolvedor Web - [ENGEPLUS](http://www.engeplus.com.br/)
+
+Para esta avaliação será necessário o desenvolvimento de um sistema para atender o cenário proposto e suas regras de negócio.
+
+Além disso, para o desenvolvimento da solução é obrigatória a utilização de:
+- PHP
+- Banco de dados MySQL
+
+# Cenário
+Uma empresa de tecnologia possui a necessidade de controlar as vendas e comissões de seus vendedores. Esta empresa comercializa produtos e serviços, para produtos a comissão é de 10% e serviços 25%. Mas para vendedores contratados há mais de 5 anos a porcentagem de comissão é de 30%.
+
+## Regras de negócio
+- Apenas usuários autenticados podem acessar o sistema.
+- Ao realizar uma venda deve ser calculada a comissão.
+- Uma venda pode conter mais de um produto ou serviço.
+- Relatório de vendas por período por vendedor.
+
+## Pré-requisitos
+- Programação orientada a objetos.
+- Uso de frameworks e bibliotecas.
+
+## Diferenciais
+- Testes automatizados.
+- Layout responsivo.
+
+# Entrega da avaliação
+1. O código deve ser publicado em um repositório Git, como o GitHub ou Bitbucket.
+2. Deve ser enviado um e-mail para rhengeplus@engeplus.com.br contendo:
+
+    a. Link do repositório Git.
+
+    b. SQL para criação das tabelas do banco de dados.
+
+3. Se desejar, informe suas observações a respeito do desenvolvimento do projeto, justificando suas escolhas tecnológicas.
+
