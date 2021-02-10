@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\Vendas;
 use App\Http\Livewire\Produtos;
+use App\Http\Livewire\Comissoes;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +17,8 @@ use App\Http\Livewire\Produtos;
 |
 */
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/', Comissoes::class)->name('comissoes');
+Route::middleware(['auth:sanctum', 'verified'])->get('/comissoes', Comissoes::class)->name('comissoes');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('vendas', Vendas::class)->name('vendas');
 Route::middleware(['auth:sanctum', 'verified'])->get('produtos', Produtos::class)->name('produtos');

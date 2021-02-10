@@ -21,7 +21,7 @@
         <div class="">
               <div class="mb-4">
                   <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Vendedor:</label>
-                  <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="{{ Auth::user()->name }}" wire:model="vendedor" value="{{ Auth::user()->id }}" readonly>
+                  <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="{{ $user->name }}" wire:model="vendedor" value="{{ $user->id }}" readonly>
               </div>
               <div class="mb-4">
                   <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Nome:</label>

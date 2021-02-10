@@ -27,16 +27,16 @@
                     <tr class="bg-gray-100">
                         <th class="px-4 py-2 w-20">N#</th>
                         <th class="px-4 py-2">Nome</th>
-                        <th class="px-4 py-2">Detalhes</th>
+                        <th class="px-4 py-2">Valor</th>
                         <th class="px-4 py-2">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($vendas as $venda)
                     <tr>
-                        <td class="border px-4 py-2">{{ $venda->id }}</td>
+                        <td class="border px-4 py-2 text-center">{{ $venda->id }}</td>
                         <td class="border px-4 py-2">{{ $venda->name }}</td>
-                        <td class="border px-4 py-2">{{ $venda->detail }}</td>
+                        <td class="border px-4 py-2">R$ {{ $venda->value }}</td>
                         <td class="border px-4 py-2 flex justify-center">
                             <button wire:click="edit({{ $venda->id }})" class="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 Editar
