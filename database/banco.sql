@@ -56,7 +56,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2021_02_04_145131_create_sessions_table', 1),
 (7, '2021_02_05_114413_create_vendas_table', 1),
 (8, '2021_02_05_143703_create_produtos_table', 1),
-(9, '2021_02_05_151503_create_servicos_table', 1),
 (10, '2021_02_07_062845_create_venda_produto_table', 1);
 
 -- --------------------------------------------------------
@@ -137,20 +136,6 @@ INSERT INTO `produto_venda` (`id`, `venda_id`, `produto_id`) VALUES
 (9, 10, 4),
 (10, 11, 2),
 (11, 11, 3);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `servicos`
---
-
-CREATE TABLE `servicos` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `value` decimal(22,2) DEFAULT 0.00,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
