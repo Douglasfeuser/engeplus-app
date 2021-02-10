@@ -15,26 +15,32 @@
                   </div>
                 </div>
             @endif
-            <table class="table-fixed w-full">
-                <thead>
-                    <tr class="bg-gray-100">
-                        <th class="px-4 py-2 w-20">N#</th>
-                        <th class="px-4 py-2">Nome venda</th>
-                        <th class="px-4 py-2">Comissão</th>
-                        <th class="px-4 py-2">Valor total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($comissoes as $comissao)
-                    <tr>
-                        <td class="border px-4 py-2 text-center">{{ $comissao->id }}</td>
-                        <td class="border px-4 py-2">{{ $comissao->name }}</td>
-                        <td class="border px-4 py-2 text-center">R$ {{ $comissao->comissao }}</td>
-                        <td class="border px-4 py-2 text-center">R$ {{ $comissao->value }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            @if (count($this->comissoes) >= 1)
+                <table class="table-fixed w-full">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="px-4 py-2 w-20">N#</th>
+                            <th class="px-4 py-2">Nome venda</th>
+                            <th class="px-4 py-2">Comissão</th>
+                            <th class="px-4 py-2">Valor total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($comissoes as $comissao)
+                        <tr>
+                            <td class="border px-4 py-2 text-center">{{ $comissao->id }}</td>
+                            <td class="border px-4 py-2">{{ $comissao->name }}</td>
+                            <td class="border px-4 py-2 text-center">R$ {{ $comissao->comissao }}</td>
+                            <td class="border px-4 py-2 text-center">R$ {{ $comissao->value }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            @else
+                <div class="nenhuma-comissao">
+                    <p>Esse vendedor ainda não tem nenhuma comissão.</p>
+                </div>
+            @endif
         </div>
     </div>
 </div>
